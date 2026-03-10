@@ -102,6 +102,7 @@ export default {
     }
 
     const issueData = await issueResponse.json();
+    console.log('GitHub issue created:', issueData.html_url);
     return jsonResponse(
       { issue_url: issueData.html_url, issue_number: issueData.number },
       201,
