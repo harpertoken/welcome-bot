@@ -76,7 +76,7 @@ The website form reads the endpoint from `data-endpoint` in `welcome.html`.
 Update it to your deployed URL, for example:
 
 ```
-https://welcome.harpertoken.org/api/welcome
+https://harpertoken-welcome-bot.harpertoken-welcome.workers.dev
 ```
 
 ## Behavior
