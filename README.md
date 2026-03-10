@@ -5,7 +5,7 @@ This service opens a welcome issue when someone submits the website form.
 ## What you need
 
 - A new repo to receive welcome issues, for example: `harpertoken/welcome-issues`.
-- A GitHub token with `repo` scope for that repo.
+- A GitHub App installed on the org with permission to create issues in that repo.
 - A deployed endpoint URL (Cloudflare Workers recommended below).
 
 ## Configure
@@ -16,12 +16,26 @@ Update these in `wrangler.toml`:
 - `ALLOWED_ORIGIN` (your website origin)
 - `WELCOME_LABELS` (comma-separated labels to apply)
 - `WELCOME_ASSIGNEES` (comma-separated GitHub usernames to assign)
+- `GITHUB_APP_ID`
+- `GITHUB_APP_INSTALLATION_ID`
 
-Set the GitHub token secret:
+Set the GitHub App private key secret:
 
 ```
-wrangler secret put GITHUB_TOKEN
+npx wrangler secret put GITHUB_APP_PRIVATE_KEY
 ```
+
+## GitHub App setup
+
+Create a GitHub App in the org and install it on `harpertoken/welcome-issues`.
+
+Recommended permissions:
+
+- Issues: Read and write
+- Metadata: Read-only
+
+Copy the App ID and Installation ID into `wrangler.toml`.
+Download the private key and store it as `GITHUB_APP_PRIVATE_KEY`.
 
 ## Deploy (Cloudflare Workers)
 
@@ -38,10 +52,10 @@ Check secrets configured for the worker:
 npx wrangler secret list
 ```
 
-Add or update the GitHub token secret:
+Add or update the GitHub App private key secret:
 
 ```
-npx wrangler secret put GITHUB_TOKEN
+npx wrangler secret put GITHUB_APP_PRIVATE_KEY
 ```
 
 Tail live logs (useful for debugging):
