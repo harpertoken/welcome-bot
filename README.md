@@ -30,6 +30,32 @@ npm install
 npm run deploy
 ```
 
+## Common commands
+
+Check secrets configured for the worker:
+
+```
+npx wrangler secret list
+```
+
+Add or update the GitHub token secret:
+
+```
+npx wrangler secret put GITHUB_TOKEN
+```
+
+Tail live logs (useful for debugging):
+
+```
+npx wrangler tail --format=pretty
+```
+
+List welcome issues (requires `gh` auth):
+
+```
+gh issue list -R harpertoken/welcome-issues
+```
+
 ## Website integration
 
 The website form reads the endpoint from `data-endpoint` in `welcome.html`.
