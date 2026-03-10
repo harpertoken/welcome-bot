@@ -93,6 +93,7 @@ export default {
 
     if (!issueResponse.ok) {
       const errorText = await issueResponse.text();
+      console.log('GitHub issue create failed:', issueResponse.status, errorText);
       return jsonResponse(
         { error: 'Failed to create issue.', details: errorText },
         issueResponse.status,
