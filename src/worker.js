@@ -29,8 +29,8 @@ const base64UrlEncodeString = (input) =>
 
 const pemToArrayBuffer = (pem) => {
   const clean = pem
-    .replace('-----BEGIN PRIVATE KEY-----', '')
-    .replace('-----END PRIVATE KEY-----', '')
+    .replace(/-----BEGIN (RSA )?PRIVATE KEY-----/g, '')
+    .replace(/-----END (RSA )?PRIVATE KEY-----/g, '')
     .replace(/\s+/g, '');
   const binary = atob(clean);
   const bytes = new Uint8Array(binary.length);
