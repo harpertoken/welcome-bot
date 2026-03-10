@@ -1,0 +1,10 @@
+name = "harpertoken-welcome-bot"
+main = "src/worker.js"
+compatibility_date = "2026-03-10"
+
+[vars]
+WELCOME_OWNER = "harpertoken"
+WELCOME_REPO = "welcome-issues"
+ALLOWED_ORIGIN = "https://harpertoken.github.io"
+WELCOME_LABELS = "welcome,intro"
+WELCOME_ASSIGNEES = ""
