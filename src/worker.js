@@ -27,8 +27,14 @@ const base64UrlEncode = (input) =>
 const base64UrlEncodeString = (input) =>
   btoa(input).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
 
+const normalizePrivateKeyPem = (pem) =>
+  String(pem || '')
+    .trim()
+    .replace(/^"(.*)"$/, '$1')
+    .replace(/\\n/g, '\n');
+
 const pemToArrayBuffer = (pem) => {
-  const clean = pem
+  const clean = normalizePrivateKeyPem(pem)
     .replace(/-----BEGIN (RSA )?PRIVATE KEY-----/g, '')
     .replace(/-----END (RSA )?PRIVATE KEY-----/g, '')
     .replace(/\s+/g, '');
