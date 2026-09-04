@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/harpertoken/welcome-bot/main/.github/assets/thumbnail.png" alt="welcome-bot" width="100%">
+</p>
+
 # welcome-bot
 
 Bot to greet new helpers in JavaScript. Runs on Cloudflare Workers.
