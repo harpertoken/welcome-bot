@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/harpertoken/welcome-bot/main/.github/assets/thumbnail.png" alt="welcome-bot" width="100%">
+  <img src="https://raw.githubusercontent.com/Coccinella-Labs/welcome-bot/main/.github/assets/thumbnail.png" alt="welcome-bot" width="100%">
 </p>
 
 # welcome-bot
